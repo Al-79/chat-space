@@ -1,0 +1,37 @@
+.main-chat
+  .main-chat__group-info
+    .main-chat__group-info--left
+      -#このタグはdisplay flexのためだけに入れてます
+      .main-chat__group-info--main
+        test
+      .main-chat__group-info--sub
+        Member:masa
+    .main-chat__group-info--right
+      = link_to 'Edit', '#' ,class: 'main-chat__group-info--link'
+  .main-chat__message-list
+    .message-one
+      .message-one__top
+        .message-one__name
+          masa
+        .message-one__time
+          2019
+      .message-one__bottom
+        おはよう！
+    .message-one
+      .message-one__top
+        .message-one__name
+          masa
+        .message-one__time
+          2019
+      .message-one__bottom
+        おはよう！
+  .main-chat__message-form
+    .main-chat__message-form--box
+      .main-chat__message-form--box--main
+        type a message
+      .main-chat__message-form--box--icon
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{class: "invisible-btn", type: "file"}
+    .main-chat__message-form--send
+      Send
