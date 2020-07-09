@@ -13,7 +13,7 @@
     .message-one
       = render @messages
   .Footer
-    = form_with model: [@group, @message], html: {class: "main-chat__message-form"}, local: true do |f|
+    = form_with model: [@group, @message], html: {class: "main-chat__message-form"},local: true, id: "new_message" do |f|
       .main-chat__message-form--box
         = f.text_field :content, class: 'main-chat__message-form--box--main', placeholder: 'type a message'
         = f.label :image, class: 'main-chat__message-form--box--icon' do
