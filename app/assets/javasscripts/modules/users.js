@@ -4,7 +4,7 @@ $(function(){
                   <p class="ChatMember__name">${user.name}</p>
                   <div class="ChatMember__add ChatMember__button" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
                 </div>`
-    $(".ChatMembers").append(html);
+    $("#UserSearchResult").append(html);
   }
 
   function addNoUser() {
@@ -13,7 +13,7 @@ $(function(){
                   <p class="ChatMember__name">ユーザーが見つかりません</p>
                 </div>
                 `;
-    $(".ChatMembers").append(html);
+    $("#UserSearchResult").append(html);
   }
 
   function addMember(name, id){
@@ -27,8 +27,8 @@ $(function(){
     $(".ChatMembers").append(html)
   }
 
-  $(".search-input").on('keyup', function(){
-    let input = $(".search-input").val();    //フォームの値を取得して変数に代入する
+  $("#UserSearch__field").on('keyup', function(){
+    let input = $("#UserSearch__field").val();    //フォームの値を取得して変数に代入する
     $.ajax({
       type: "GET",
       url: "/users",
@@ -36,7 +36,7 @@ $(function(){
       dataType: "json"
     })
     .done(function(users) {
-      $(".ChatMembers").empty();
+      $("#UserSearchResult").empty();
       if (users.length !== 0) {
         users.forEach(function(user){
           appendUser(user);
@@ -51,7 +51,7 @@ $(function(){
     })
   })
 
-  $(".ChatMembers").on('click', ".ChatMember__add", function(){
+  $("#UserSearchResult").on('click', ".ChatMember__add", function(){
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this).parent().remove();
